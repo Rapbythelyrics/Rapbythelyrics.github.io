@@ -1,0 +1,63 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>🎧 Rap Styles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    button {
+      padding: 12px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background: #ff3c00;
+      color: white;
+    }
+    #output {
+      margin-top: 30px;
+      white-space: pre-line;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎧 Выбери стиль рэпа</h1>
+
+  <button onclick="styleRap('hard')">Жёсткий 🔥</button>
+  <button onclick="styleRap('chill')">Чил 😎</button>
+  <button onclick="styleRap('funny')">Смешной 😂</button>
+
+  <div id="output"></div>
+
+  <br><br>
+  <a href="index.html">
+    <button>⬅ Назад</button>
+  </a>
+
+  <script>
+    function styleRap(type) {
+      let text = '';
+
+      if (type === 'hard') {
+        text = `Я иду вперёд — не вижу предел\nБит подо мной — будто дикий обстрел\nМои строки — это пули в ответ\nЯ оставляю после себя только след 🔥`;
+      }
+
+      if (type === 'chill') {
+        text = `Медленный вайб, я ловлю этот звук\nГород уснул — я рисую вокруг\nКаждая строчка — как лёгкий полёт\nМузыка мягко меня унесёт 😎`;
+      }
+
+      if (type === 'funny') {
+        text = `Я как банан — жёлтый и крут\nПишу этот трек прямо тут\nСосед кричит: "сделай потише"\nА я делаю громче — пусть слышит 😂`;
+      }
+
+      document.getElementById('output').innerText = text;
+    }
+  </script>
+</body>
+</html>
