@@ -1,44 +1,65 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Rap Generator</title>
+  <title>🔥 Rap Generator PRO</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #111;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
       color: #fff;
       text-align: center;
       padding: 40px;
     }
     input, button {
-      padding: 10px;
+      padding: 12px;
       font-size: 16px;
       margin: 10px;
-      border-radius: 8px;
+      border-radius: 10px;
       border: none;
+    }
+    input {
+      width: 300px;
     }
     button {
       background: #ff3c00;
       color: white;
       cursor: pointer;
     }
+    button:hover {
+      background: #ff5a1f;
+    }
     #output {
       margin-top: 30px;
       white-space: pre-line;
-      font-size: 18px;
+      font-size: 20px;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <h1>🎤 Rap Generator</h1>
+  <h1>🎤 Rap Generator PRO</h1>
   <p>Введи слова через запятую:</p>
   <input id="words" placeholder="ночь, дверь, легенда">
   <br>
-  <button onclick="generateRap()">Сгенерировать</button>
+  <button onclick="generateRap()">Сгенерировать 🔥</button>
 
   <div id="output"></div>
 
   <script>
+    const templates = [
+      (w1, w2) => `${w1} в тени — я иду как секрет,`,
+      (w1, w2) => `${w2} в голове — создаю силуэт,`,
+      (w1, w2) => `${w1} и ${w2} — это мой элемент,`,
+      (w1, w2) => `${w2} на биту — я ломаю момент,`,
+      (w1, w2) => `через ${w1} я вижу новый сюжет,`,
+      (w1, w2) => `${w2} внутри — как огонь без границ`
+    ];
+
+    function getRandomWord(words) {
+      return words[Math.floor(Math.random() * words.length)];
+    }
+
     function generateRap() {
       const input = document.getElementById('words').value;
       const words = input.split(',').map(w => w.trim()).filter(w => w);
@@ -50,17 +71,22 @@
 
       let rap = '';
 
-      for (let i = 0; i < 6; i++) {
-        const w1 = words[Math.floor(Math.random() * words.length)];
-        const w2 = words[Math.floor(Math.random() * words.length)];
-        rap += `${w1} на биту — это мой ответ,\n`;
-        rap += `${w2} в голове — я пишу куплет.\n`;
+      for (let i = 0; i < 8; i++) {
+        const w1 = getRandomWord(words);
+        const w2 = getRandomWord(words);
+        const line = templates[Math.floor(Math.random() * templates.length)](w1, w2);
+        rap += line + '\n';
       }
 
-      rap += '\n🔥 Я делаю звук, будто это легенда!';
+      rap += '\n🔥 Я делаю звук — это новая легенда!';
 
       document.getElementById('output').innerText = rap;
     }
   </script>
+  <!-- Кнопка перехода на вторую страницу -->
+  <br><br>
+  <a href="page2.html">
+    <button>Перейти на страницу 2 🚀</button>
+  </a>
 </body>
 </html>
