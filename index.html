@@ -1,0 +1,66 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Rap Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      background: #ff3c00;
+      color: white;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 30px;
+      white-space: pre-line;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎤 Rap Generator</h1>
+  <p>Введи слова через запятую:</p>
+  <input id="words" placeholder="ночь, дверь, легенда">
+  <br>
+  <button onclick="generateRap()">Сгенерировать</button>
+
+  <div id="output"></div>
+
+  <script>
+    function generateRap() {
+      const input = document.getElementById('words').value;
+      const words = input.split(',').map(w => w.trim()).filter(w => w);
+
+      if (words.length === 0) {
+        document.getElementById('output').innerText = 'Введи хотя бы одно слово 😅';
+        return;
+      }
+
+      let rap = '';
+
+      for (let i = 0; i < 6; i++) {
+        const w1 = words[Math.floor(Math.random() * words.length)];
+        const w2 = words[Math.floor(Math.random() * words.length)];
+        rap += `${w1} на биту — это мой ответ,\n`;
+        rap += `${w2} в голове — я пишу куплет.\n`;
+      }
+
+      rap += '\n🔥 Я делаю звук, будто это легенда!';
+
+      document.getElementById('output').innerText = rap;
+    }
+  </script>
+</body>
+</html>
